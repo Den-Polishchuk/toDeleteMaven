@@ -1,6 +1,7 @@
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+package test.java;
+
+import main.java.Cat;
+import org.testng.annotations.*;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -18,21 +19,27 @@ public class TestSimple {
         vasiliy = new Cat("Vasiliy");
     }
 
-    @Test
-    public void checkAgeSetter(){
-        vasiliy.setAge(-100);
-        int expected = 1;
+
+    @Parameters({"login"})
+    @Test()
+    public void checkAgeSetter(String login){
+        System.out.println(login);
+        vasiliy.setAge(1);
         int actual = vasiliy.getAge();
-        assertEquals(expected, actual,
-                String.format("Expected %d to be equal %d", expected, actual));
+        assertEquals(1, actual,
+                String.format("Expected %d to be equal %d", 1, actual));
     }
 
-    @Test
-    public void checkAgeSetter2(){
-        vasiliy.setAge(15);
-        int expected = 15;
-        int actual = vasiliy.getAge();
-        assertTrue(expected == actual,
-                String.format("Expected %d to be equal %d", expected, actual));
+
+    @DataProvider(name = "provider") //from testng documentation
+    public Object[][] provider(){
+        return new Object[][]{
+                {0,1, "First"},
+                {1,1, "Second"},
+                {20,20, "Third"},
+                {15,15, "Fifth"},
+                {21,1, "Sixth" },
+                {-15,1, "Seventh"}
+        };
     }
 }

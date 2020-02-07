@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="First suite">
+    <parameter name="myKey" value="SUPER-KEY">
+        <test name="First test">
+            <classes>
+                <class name="test.java.TestSimple">
+                    <methods>
+                        <include name="checkAgeSetter"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
+    </parameter>
+</suite>

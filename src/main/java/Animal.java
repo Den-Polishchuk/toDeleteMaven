@@ -1,3 +1,5 @@
+package main.java;
+
 public class Animal {
     Animal () {
         System.out.println("Animal was created");

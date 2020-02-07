@@ -1,17 +1,24 @@
+package main.java;
+
 public class Cat extends Animal {
 
-    Cat(String name, int aAge) {
+    public Cat(String name, int aAge) {
         System.out.println("New cat was created");
         this.name = name;
         this.age = aAge;
         this.count++;
     }
 
-    Cat(String name) {
+    public Cat(String name) {
         System.out.println("New cat was created");
         this.name = name;
         age = 1;
         this.count++;
+    }
+
+    public Cat() {
+        System.out.println("New cat was created");
+
     }
 
     String color = "white";
@@ -51,7 +58,7 @@ public class Cat extends Animal {
 
     String introduce() {
         //return String.format("Hello %s my name is %s", name, this.name);
-        return "Hello , my name is " + name + "me color is " + color;
+        return "Hello, my name is " + name + ". My color is " + color;
     }
 
 
